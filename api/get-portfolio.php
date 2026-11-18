@@ -7,6 +7,10 @@ $response = [];
 $resProfile = $conn->query("SELECT * FROM profile_info WHERE id = 1");
 $response['profile'] = $resProfile ? $resProfile->fetch_assoc() : null;
 
+// Testi inseriti nel sito
+$resProfile = $conn->query("SELECT * FROM website_text WHERE id = 1");
+$response['website_text'] = $resProfile ? $resProfile->fetch_assoc() : null;
+
 // Link dei Social
 $resSocials = $conn->query("SELECT * FROM social_links");
 $response['socials'] = $resSocials ? $resSocials->fetch_all(MYSQLI_ASSOC) : [];

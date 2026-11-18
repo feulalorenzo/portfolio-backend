@@ -4,7 +4,7 @@ require_once 'db.php';
 // Accetta solo richieste POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
-    echo json_encode(["success" => false, "message" => "Metodo non consentito"]);
+    echo json_encode(["success" => false, "message" => "Unallowed method."]);
     exit();
 }
 
@@ -18,14 +18,14 @@ $message = trim($data['message'] ?? '');
 // Controllo che i campi non siano vuoti
 if (empty($name) || empty($email) || empty($message)) {
     http_response_code(400);
-    echo json_encode(["success" => false, "message" => "Compila tutti i campi richiesti."]);
+    echo json_encode(["success" => false, "message" => "Fill in all required fields"]);
     exit();
 }
 
 // Controllo formato email valido
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     http_response_code(400);
-    echo json_encode(["success" => false, "message" => "Indirizzo email non valido."]);
+    echo json_encode(["success" => false, "message" => "Invalid email address"]);
     exit();
 }
 
@@ -34,10 +34,10 @@ $stmt = $conn->prepare("INSERT INTO messages (sender_name, sender_email, message
 $stmt->bind_param("sss", $name, $email, $message);
 
 if ($stmt->execute()) {
-    echo json_encode(["success" => true, "message" => "Messaggio inviato con successo!"]);
+    echo json_encode(["success" => true, "message" => "Message sent successfully"]);
 } else {
     http_response_code(500);
-    echo json_encode(["success" => false, "message" => "Errore durante il salvataggio del messaggio."]);
+    echo json_encode(["success" => false, "message" => "Error saving the message"]);
 }
 
 $stmt->close();

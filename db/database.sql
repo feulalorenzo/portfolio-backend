@@ -6,6 +6,7 @@ USE portfolio_db;
 CREATE TABLE profile_info (
 	id INT PRIMARY KEY DEFAULT 1,
     my_name VARCHAR(100) NOT NULL,
+    my_surname VARCHAR(100) NOT NULL,
     my_role VARCHAR(100) NOT NULL,
     availability_text VARCHAR(100) NOT NULL,
     hero_bio TEXT,
@@ -55,5 +56,9 @@ CREATE TABLE messages (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE website_text (
+	id INT PRIMARY KEY DEFAULT 1,
+    skills_text VARCHAR(250) NOT NULL
+)
 
 

@@ -9,10 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 
-$host = "localhost";
-$user = "root";
-$pass = "root";
-$db   = "portfolio_db";
+$host = "sql103.infinityfree.com";
+$user = "if0_43473536";
+$pass = "ACTfc0EUAD6Q";
+$db   = "if0_43473536_db_portfolio";
 
 $conn = new mysqli($host, $user, $pass, $db);
 
