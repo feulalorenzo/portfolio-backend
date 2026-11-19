@@ -34,7 +34,7 @@ A lightweight, custom REST API built in PHP and MySQL to power my personal portf
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/your-backend-repo.git
+   git clone https://github.com/feulalorenzo/portfolio-backend
    ```
 
 2. **Configure Database Credentials:**
